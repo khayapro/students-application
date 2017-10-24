@@ -1,6 +1,7 @@
 package za.co.aeonsource.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import za.co.aeonsource.entity.Student;
 import za.co.aeonsource.repository.StudentRepository;
@@ -14,6 +15,7 @@ import java.util.Collection;
 public class StudentService {
 
     @Autowired
+    @Qualifier("my_sql_db")
     private StudentRepository repository;
 
     public Collection<Student> getStudents(){
