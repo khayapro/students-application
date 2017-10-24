@@ -28,7 +28,11 @@ public class StudentService {
         repository.removeStudentById(id);
     }
 
-    public Student addStudent(Student student) {
-        return repository.addStudent(student);
+    public Student insertStudent(Student student) {
+        return repository.insertStudent(student);
+    }
+
+    public void updateStudent(final Student student){
+        repository.updateStudent(student);
     }
 }

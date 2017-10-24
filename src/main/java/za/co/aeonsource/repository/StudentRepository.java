@@ -37,11 +37,18 @@ public class StudentRepository {
         students.remove(id);
     }
 
-    public Student addStudent(Student student) {
+    public Student insertStudent(Student student) {
         //dummy repository insert
         final Long id = students.size() + 1L;
         student.setId(id);
         students.put(id, student);
         return student;
+    }
+
+    public void updateStudent(final Student student){
+        final Student sdnt = students.get(student.getId());
+        sdnt.setCourse(student.getCourse());
+        sdnt.setName(student.getName());
+        students.put(sdnt.getId(), sdnt);
     }
 }

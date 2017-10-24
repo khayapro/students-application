@@ -9,6 +9,10 @@ public class Student {
     private String name;
     private String course;
 
+    protected Student(){
+        super();
+    }
+
     public Student(Long id, String name, String course) {
         this.id = id;
         this.name = name;

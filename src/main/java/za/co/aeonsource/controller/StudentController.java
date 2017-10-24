@@ -1,7 +1,7 @@
 package za.co.aeonsource.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import za.co.aeonsource.entity.Student;
 import za.co.aeonsource.service.StudentService;
@@ -33,8 +33,14 @@ public class StudentController {
         service.removeStudentById(id);
     }
 
-    public Student addStudent(Student student){
-        return service.addStudent(student);
+    @RequestMapping(value = "/student", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Student insertStudent(@RequestBody Student student){
+        return service.insertStudent(student);
+    }
+
+    @RequestMapping(value = "/student", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void updateStudent(@RequestBody Student student){
+        service.updateStudent(student);
     }
 }
 
