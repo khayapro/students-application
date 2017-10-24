@@ -23,4 +23,12 @@ public class StudentService {
     public Student getStudentById(final Long id){
         return repository.getStudentById(id);
     }
+
+    public void removeStudentById(Long id) {
+        repository.removeStudentById(id);
+    }
+
+    public Student addStudent(Student student) {
+        return repository.addStudent(student);
+    }
 }

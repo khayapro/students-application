@@ -33,4 +33,15 @@ public class StudentRepository {
         return students.get(id);
     }
 
+    public void removeStudentById(Long id) {
+        students.remove(id);
+    }
+
+    public Student addStudent(Student student) {
+        //dummy repository insert
+        final Long id = students.size() + 1L;
+        student.setId(id);
+        students.put(id, student);
+        return student;
+    }
 }

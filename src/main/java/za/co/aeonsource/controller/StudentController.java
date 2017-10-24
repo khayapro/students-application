@@ -2,10 +2,7 @@ package za.co.aeonsource.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import za.co.aeonsource.entity.Student;
 import za.co.aeonsource.service.StudentService;
 
@@ -29,6 +26,15 @@ public class StudentController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Student getStudentById(@PathVariable(value = "id") final Long id){
         return service.getStudentById(id);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void removeStudentById(@PathVariable("id") final Long id){
+        service.removeStudentById(id);
+    }
+
+    public Student addStudent(Student student){
+        return service.addStudent(student);
     }
 }
 
